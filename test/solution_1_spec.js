@@ -1,5 +1,5 @@
 const sumOfDivided = require('../lib/solution_1')
-const { getPrimeFactors } = sumOfDivided
+const { getPrimeFactors, isPrime } = sumOfDivided
 const sumOfDividedExample = require('./sum_of_divided_example')
 const { createTestCase } = require('./helpers')
 
@@ -25,5 +25,20 @@ describe('solution 1', () => {
       [2, 3, 5, 7, 11, 13].reduce((re, i) => re * Math.pow(i, 3), 1),
       [2, 3, 5, 7, 11, 13]
     )
+  })
+
+  describe('isPrime', () => {
+    const test = createTestCase(orig => isPrime(orig))
+
+    test(0, false)
+    test(1, false)
+    test(2, true)
+    test(3, true)
+    test(4, false)
+    test(5, true)
+    test(10, false)
+    test(11, true)
+    test(1373, true)
+    test(7451, true)
   })
 })
